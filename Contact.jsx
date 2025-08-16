@@ -18,33 +18,30 @@ class Contact extends Component {
     e.preventDefault()
 
     if (this.state.firstName.length < 3) {
-        this.setState({firstNameErr:"firstname err"})
-
+      this.setState({ firstNameErr: "firstname err" })
     }
-    else{
-      this.setState({firstNameErr:""})
+
+    else {
+      this.setState({ firstNameErr: "" })
     }
     if (this.state.lastName.length < 1) {
-      this.setState({lastNameErr: "LastName should contains min 1Char"})
+      this.setState({ lastNameErr: "LastName should contains min 1Char" })
     }
-    else{
-      this.setState({lastNameErr:""})
+    else {
+      this.setState({ lastNameErr: "" })
     }
     if (!this.state.email.includes("@")) {
-     this.setState ({emailErr: "Email should include @"})
+      this.setState({ emailErr: "Email should include @" })
     }
-    else{
-      this.setState({emailErr:""})
+    else {
+      this.setState({ emailErr: "" })
     }
     if (this.state.phoneNumber.length !== 10) {
-      this.setState({phoneNumberErr: "PhoneNumber should be extactly 10"})
+      this.setState({ phoneNumberErr: "PhoneNumber should be extactly 10" })
     }
-    else{
-      this.setState({phoneNumberErr:""})
+    else {
+      this.setState({ phoneNumberErr: "" })
     }
-    
-    console.log(this.state);
-
 
   };
   handleChange = (e) => {
@@ -70,37 +67,58 @@ class Contact extends Component {
               name='firstName'
               placeholder='Enter your Firstname'
               value={this.state.firstName}
-              onChange={(e) => this.handleChange(e)} /><br /><br />
-            {
+              onChange={(e) => this.handleChange(e)} />
+            {this.state.firstNameErr ? (
+              <p className="error-msg">{this.state.firstNameErr}</p>
+            ) : (
+              this.state.firstName && <span className="check">✔</span>
+            )}<br /><br />
+            {/* {
               this.state.firstNameErr && <p className="text-danger">{this.state.firstNameErr}</p>
-            }
+
+            } */}
 
             <input type="text"
               name='lastName'
               placeholder='Enter your Lastname'
               value={this.state.lastName}
-              onChange={(e) => this.handleChange(e)} /><br /><br />
-            {
+              onChange={(e) => this.handleChange(e)} />
+            {this.state.lastNameErr ? (
+              <p className="error-msg">{this.state.lastNameErr}</p>
+            ) : (
+              this.state.lastName && <span className="check">✔</span>
+            )}<br /><br />
+            {/* {
               this.state.lastNameErr && <p className="text-danger">{this.state.lastNameErr}</p>
-            }
+            } */}
 
             <input type="text"
               name='email'
               placeholder='Enter your Mail id'
               value={this.state.email}
-              onChange={(e) => this.handleChange(e)} /><br /><br />
-            {
+              onChange={(e) => this.handleChange(e)} />{this.state.emailErr ? (
+                <p className="error-msg">{this.state.emailErr}</p>
+              ) : (
+                this.state.email && <span className="check">✔</span>
+              )}<br /><br />
+            {/* {
               this.state.emailErr && <p className="text-danger">{this.state.emailErr}</p>
-            }
+            } */}
 
             <input type="number"
               name='phoneNumber'
               placeholder='Enter your Phonenumber'
               value={this.state.phoneNumber}
-              onChange={(e) => this.handleChange(e)} /><br /><br />
-            {
+              onChange={(e) => this.handleChange(e)} />
+            {this.state.phoneNumberErr ? (
+              <p className="error-msg">{this.state.phoneNumberErr}</p>
+            ) : (
+              this.state.phoneNumber && <span className="check">✔</span>
+            )}<br /><br />
+            {/* {
               this.state.phoneNumberErr && <p className="text-danger">{this.state.phoneNumberErr}</p>
-            }
+
+            } */}
 
             <input type="submit" name='submit' />
           </form>
