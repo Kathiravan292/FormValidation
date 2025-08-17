@@ -8,7 +8,7 @@ class Contact extends Component {
     firstName: "",
     lastName: "",
     email: "",
-    phoneNumber: "",
+    phoneNumber: ""
     firstNameErr: "",
     lastNameErr: "",
     emailErr: "",
@@ -129,3 +129,4 @@ class Contact extends Component {
 }
 
 export default Contact
+
