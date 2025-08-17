@@ -21,7 +21,6 @@ function App() {
     {/* <Emoje></Emoje> */}
     <Contact></Contact>
   
-
     
     
 
